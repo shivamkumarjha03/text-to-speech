@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 { color: #333; }
+    textarea {
+      width: 80%;
+      height: 100px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🗣️ Text to Speech App</h1>
+  <form action="/speak" method="POST">
+    <textarea name="text" placeholder="Type text (English + Hindi) here..."></textarea><br>
+    <button type="submit">Speak</button>
+  </form>
+
+  {% if audio_file %}
+  <audio controls autoplay>
+    <source src="{{ audio_file }}" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  {% endif %}
+</body>
+</html>
